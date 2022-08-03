@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multiplas/screens/categories_meals_screen.dart';
 import 'package:multiplas/screens/categories_screens.dart';
+import 'package:multiplas/screens/meal_detail_screen.dart';
 import 'package:multiplas/utils/app_routes.dart';
 
 void main() => runApp(MyApp());
@@ -23,12 +24,14 @@ class MyApp extends StatelessWidget {
           headline6: const TextStyle(
             fontFamily: 'RobotoCondensed',
             fontSize: 16,
+            color: Colors.black,
           ),
         ),
       ),
       routes: {
         AppRoutes.home: (ctx) => const CategoriesScreen(),
         AppRoutes.categoriesMeals: (ctx) => const CategoriesMealsScreen(),
+        AppRoutes.mealDetail: (ctx) => const MealDatailScreen(),
       },
     );
   }

@@ -1,0 +1,49 @@
+name: DemoMultiplas
+
+# Controls when the workflow will run
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+        
+        
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: dev
+      url: 'julianoarruda.com'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+        
+  deploy-hom:
+    runs-on: ubuntu-latest
+    environment:
+      name: hom
+      url: 'julianoarruda.com'
+    needs: deploy-dev
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy HOM!
+        
+  deploy-prod:
+    runs-on: ubuntu-latest
+    environment:
+      name: prod
+      url: 'julianoarruda.com'
+    needs: deploy-hom
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy PROD!
+        
+        
+        
